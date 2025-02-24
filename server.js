@@ -18,6 +18,14 @@ app.use('/api/todos', todoRoutes);
 app.get('/', (req, res) => {
     res.send('GET request to the homepage')
   })
+
+  app.get("/api/todos", (req, res) => {
+    res.json([
+      { id: 1, task: "Learn React", completed: false },
+      { id: 2, task: "Learn MERN", completed: true },
+    ]);
+  });
+  
   app.get('/login', (req, res) => {
     res.send('GET request to the login')
   })
@@ -38,5 +46,5 @@ app.get('/', (req, res) => {
   app.post('/user', (req, res) => {
     res.send('POST request to the user')
   })
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
